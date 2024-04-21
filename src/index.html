@@ -18,8 +18,8 @@
         animation: spin 2s linear infinite;
         display: none;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 62%;
+        left: 47%;
         transform: translate(-50%, -50%);
       }
       
@@ -70,7 +70,7 @@
               </div>
               <div class="flex items-center gap-2 text-[#55474F]">
                 <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle flex-shrink-0" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg></div>
-                <div>LOGIN / SIGN UP</div>
+                <div class="md:hidden lg:block">LOGIN / SIGN UP</div>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
                       </div>
                         <div class="w-full min-h-10 border border-red-500 rounded-md grid grid-cols-2">
                         <div class="w-full min-h-2 border border-red-500 border-l-0 border-t-0 border-b-0 relative">
-                            <div class="pl-2 lg:pl-8 text-gray-600 overflow-hidden">JURNEY DATE</div>
+                            <div class="pl-2 lg:pl-8 text-gray-600 overflow-hidden">JOURNEY DATE</div>
                             <div class="pl-2 lg:pl-8 overflow-hidden">
                                 <input
                                     type="date"
@@ -259,6 +259,26 @@ setTimeout(function() {
 }, 2000);
 });
 // loder end
+</script>
+
+<script>
+  // Get the container element
+const container = document.querySelector('.py-0.lg\\:py-6.hidden.lg\\:flex.items-center.gap-3');
+
+// Get the first button to extract the "going from" value
+const goingFromElement = container.querySelector('button span:first-child');
+const goingFrom = goingFromElement.textContent.trim();
+
+// Get all buttons except the first one to extract the "going to" values
+const goingToElements = container.querySelectorAll('button:not(:first-child) span:last-child');
+let goingTo = [];
+goingToElements.forEach(element => {
+    goingTo.push(element.textContent.trim());
+});
+
+console.log("Going from:", goingFrom);
+console.log("Going to:", goingTo.join(', '));
+
 </script>
 </body>
 </html>
