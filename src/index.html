@@ -107,7 +107,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="w-full min-h-32 bg-white rounded-xl p-5 lg:px-6 lg:pt-5">
+                  <div class="w-full min-h-32 bg-white rounded-xl px-5 pt-5 lg:px-6 lg:pt-5">
                     <div class="grid lg:grid-cols-2 gap-5 lg:pt-2">
                       <div class="w-full min-h-11 border border-red-500 rounded-md grid grid-cols-2">
                         <div class="w-full min-h-2 relative border-r-2 border-red-500">
@@ -223,7 +223,7 @@
                         </button>
                     </div>
                     <div class="w-full min-h-7 flex justify-center">
-                        <button id="loaderButton" class="bg-red-600 text-white py-3 px-12 rounded-md translate-y-5 font-bold">
+                        <button id="loadButton" onclick="loadData()" class="bg-red-600 text-white py-3 px-12 rounded-md translate-y-5 font-bold">
                           Search Bus
                         </button>
                       </div>
@@ -231,7 +231,15 @@
             </div>
         </div>
     </section>
-    <div id="loader" class="loader"></div>
+    
+
+    <section id="resultshow">
+      <div style="margin-top: 500px">
+        <!-- <button id="loadButton" onclick="loadData()">Load Data</button> -->
+        <div id="loader" class="loader" style="display: none"></div>
+        <div id="result" style="display: none"></div>
+      </div>
+    </section>
 
     <script>
       //  swap button statr
@@ -279,6 +287,26 @@ goingToElements.forEach(element => {
 console.log("Going from:", goingFrom);
 console.log("Going to:", goingTo.join(', '));
 
+</script>
+
+
+<script>
+  function loadData() {
+    // Show loader
+    document.getElementById("loader").style.display = "block";
+
+    // Simulate some processing time (replace this with your actual code)
+    setTimeout(function () {
+      // Hide loader
+      document.getElementById("loader").style.display = "none";
+
+      // Display result
+      document.getElementById("result").style.display = "block";
+      document.getElementById(
+        "result"
+      ).innerText = `Ticket data loaded successfully! Date: 22/04/2024 Dhaka to Chittagong Hanif AC Price tk- 2000 Time 6:30 am`;
+    }, 2000); // Simulating 2 seconds of processing time
+  }
 </script>
 </body>
 </html>
